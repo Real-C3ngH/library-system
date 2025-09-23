@@ -1,0 +1,11 @@
+.git
+.gitignore
+node_modules
+**/.DS_Store
+*.iml
+.idea/
+# Exclude target caches
+**/out/
+**/build/
+# We will copy everything, but ignoring local mysql data or dumps except library2.sql
+**/*.log

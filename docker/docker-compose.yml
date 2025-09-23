@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: library-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: library2
+      TZ: Asia/Shanghai
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
+      - ../sql/library2.sql:/docker-entrypoint-initdb.d/01-library2.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/app/Dockerfile
+    container_name: library-app
+    environment:
+      TZ: Asia/Shanghai
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    # No volumes: we use compiled classes inside the image

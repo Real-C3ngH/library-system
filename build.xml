@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="library" default="build" basedir=".">
+    <!-- Directories -->
+    <property name="src.dir" value="src" />
+    <property name="web.dir" value="web" />
+    <property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+    <property name="lib.dir" value="${web.dir}/WEB-INF/lib" />
+
+    <target name="clean">
+        <delete dir="${classes.dir}" />
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${classes.dir}" />
+    </target>
+
+    <path id="compile.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="compile" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" debug="true" encoding="UTF-8">
+            <classpath refid="compile.classpath" />
+        </javac>
+        <!-- copy resources (Spring/MyBatis configs, mapper xml, etc.) into classes for classpath lookup -->
+        <copy todir="${classes.dir}">
+            <fileset dir="${src.dir}">
+                <include name="config/**" />
+                <exclude name="**/*.java" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build" depends="compile" description="Compile sources and copy resources into WEB-INF/classes" />
+</project>
