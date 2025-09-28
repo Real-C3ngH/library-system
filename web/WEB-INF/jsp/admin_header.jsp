@@ -45,7 +45,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html" style="color: white">${admin.username}, 已登录</a>
+                <li><a href="#" style="color: white; cursor: default;" onclick="return false;">${admin.username}, 已登录</a>
                 </li>
                 <li><a href="logout.html" style="color: white">退出</a></li>
             </ul>

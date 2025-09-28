@@ -58,17 +58,13 @@ background-attachment: fixed;">
                     <input type="date" class="form-control" name="pubdate" id="pubdate" value="${detail.pubdate}" onclick="WdatePicker();">
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">分类号</span>
-                    <input type="text" class="form-control" name="classId" id="classId" value="${detail.classId}">
-                </div>
-                <div class="input-group">
                     <span  class="input-group-addon">数量</span>
                     <input type="text" class="form-control" name="number"  id="number" value="${detail.number}">
                 </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     $("#addbook").submit(function () {
-                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#isbn").val()==''||$("#introduction").val()==''||$("#language").val()==''||$("#price").val()==''||$("#pubstr").val()==''||$("#classId").val()==''||$("#number").val()==''){
+                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#isbn").val()==''||$("#introduction").val()==''||$("#language").val()==''||$("#price").val()==''||$("#pubdate").val()==''||$("#number").val()==''){
                             alert("请填入完整图书信息！");
                             return false;
                         }

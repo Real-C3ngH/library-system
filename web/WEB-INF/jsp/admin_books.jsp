@@ -35,28 +35,32 @@ background-attachment: fixed;">
                 return false;
             }
         })
+        
+        // 删除确认功能
+        $(document).on('click', '.delete-btn', function(e) {
+            e.preventDefault();
+            var bookId = $(this).data('book-id');
+            var bookName = $(this).data('book-name');
+            
+            if (confirm('确定要删除图书《' + bookName + '》吗？\n\n此操作不可撤销！')) {
+                window.location.href = 'deletebook.html?bookId=' + bookId;
+            }
+        });
     </script>
+    
+    <!-- 成功和错误消息弹窗 -->
+    <c:if test="${!empty succ}">
+        <script>
+            alert("${succ}");
+        </script>
+    </c:if>
+    <c:if test="${!empty error}">
+        <script>
+            alert("${error}");
+        </script>
+    </c:if>
 </div>
 <div style="position: relative;top: 10%">
-<c:if test="${!empty succ}">
-    <div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-hidden="true">
-            &times;
-        </button>
-        ${succ}
-    </div>
-</c:if>
-<c:if test="${!empty error}">
-    <div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-hidden="true">
-            &times;
-        </button>
-        ${error}
-    </div>
-</c:if>
-</div>
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
     <div class="panel-heading" style="background-color: #fff">
         <h3 class="panel-title">
@@ -91,7 +95,7 @@ background-attachment: fixed;">
                     <button type="button" class="btn btn-success btn-xs">详情</button>
                 </a></td>
                 <td><a href="updatebook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-                <td><a href="deletebook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                <td><button type="button" class="btn btn-danger btn-xs delete-btn" data-book-id="<c:out value="${book.bookId}"></c:out>" data-book-name="<c:out value="${book.name}"></c:out>">删除</button></td>
             </tr>
             </c:forEach>
             </tbody>

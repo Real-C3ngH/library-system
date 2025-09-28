@@ -56,10 +56,6 @@ background-attachment: fixed;">
                     <td>${detail.pubdate}</td>
                 </tr>
                 <tr>
-                    <th>分类号</th>
-                    <td>${detail.classId}</td>
-                </tr>
-                <tr>
                     <th>状态</th>
                     <c:if test="${detail.number>1}">
                         <td>在馆</td>

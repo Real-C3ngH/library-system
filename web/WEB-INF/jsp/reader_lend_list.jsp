@@ -16,23 +16,20 @@
 background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header"></div>
+
+<!-- 成功和错误消息弹窗 -->
+<c:if test="${!empty succ}">
+    <script>
+        alert("${succ}");
+    </script>
+</c:if>
+<c:if test="${!empty error}">
+    <script>
+        alert("${error}");
+    </script>
+</c:if>
+
 <div style="position: relative;top: 10%">
-    <c:if test="${!empty succ}">
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-                ${succ}
-        </div>
-    </c:if>
-    <c:if test="${!empty error}">
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-                ${error}
         </div>
     </c:if>
 </div>

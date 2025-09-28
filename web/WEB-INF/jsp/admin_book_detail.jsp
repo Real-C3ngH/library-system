@@ -58,10 +58,6 @@ background-attachment: fixed;">
                     <td>${detail.pubdate}</td>
                 </tr>
                 <tr>
-                    <th>分类号</th>
-                    <td>${detail.classId}</td>
-                </tr>
-                <tr>
                     <th>数量</th>
                     <td>${detail.number}</td>
                 </tr>

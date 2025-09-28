@@ -38,26 +38,20 @@ background-attachment: fixed;">
             }
         })
     </script>
-</div>
-<div style="position: relative;top: 10%">
+    
+    <!-- 成功和错误消息弹窗 -->
     <c:if test="${!empty succ}">
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-                ${succ}
-        </div>
+        <script>
+            alert("${succ}");
+        </script>
     </c:if>
     <c:if test="${!empty error}">
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-                ${error}
-        </div>
+        <script>
+            alert("${error}");
+        </script>
     </c:if>
+</div>
+<div style="position: relative;top: 10%">
 </div>
 <div class="panel panel-default" style="width: 90%;margin-left: 5%">
     <div class="panel-heading" style="background-color: #fff">

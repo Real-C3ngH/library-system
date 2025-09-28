@@ -61,11 +61,11 @@ background-attachment: fixed;">
 
         // 记住登录信息
         function rememberLogin(username, password, checked) {
-            Cookies.set('loginStatus', {
+            Cookies.set('loginStatus', JSON.stringify({
                 username: username,
                 password: password,
                 remember: checked
-            }, {expires: 30, path: ''})
+            }), {expires: 30, path: ''})
         }
         // 若选择记住登录信息，则进入页面时设置登录信息
         function setLoginStatus() {
@@ -83,6 +83,29 @@ background-attachment: fixed;">
 
         // 设置登录信息
         setLoginStatus();
+        
+        // 检查是否是从logout页面跳转来的，如果是则不自动填充
+        if (document.referrer.includes('logout.html')) {
+            $('#username').val('');
+            $('#passwd').val('');
+            $("#remember").prop('checked', false);
+            Cookies.remove('loginStatus');
+        }
+        
+        // 当用户手动更改用户名或密码时，取消记住密码的勾选
+        var originalUsername = $('#username').val();
+        var originalPassword = $('#passwd').val();
+        
+        $('#username, #passwd').on('input', function() {
+            var currentUsername = $('#username').val();
+            var currentPassword = $('#passwd').val();
+            
+            // 如果用户名或密码发生了变化，且当前不是自动填充的状态
+            if ((currentUsername !== originalUsername || currentPassword !== originalPassword) && 
+                (originalUsername !== '' || originalPassword !== '')) {
+                $("#remember").prop('checked', false);
+            }
+        });
         $("#loginButton").click(function () {
             var username =$("#username").val();
             var passwd=$("#passwd").val();
@@ -108,10 +131,17 @@ background-attachment: fixed;">
                         if (data.stateCode.trim() === "0") {
                             alert("提示:账号或密码错误！");
                         } else if (data.stateCode.trim() === "1") {
+                            // 管理员登录成功
+                            if(remember){
+                                rememberLogin(username,passwd,remember);
+                            }else {
+                                Cookies.remove('loginStatus');
+                            }
                             alert("提示:登陆成功，跳转中...");
                             window.parent.location.href = "admin_books.html";
 
                         } else if (data.stateCode.trim() === "2") {
+                            // 读者登录成功
                             if(remember){
                                 rememberLogin(username,passwd,remember);
                             }else {

@@ -2,7 +2,6 @@ package com.library.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Book implements Serializable {
 
@@ -15,7 +14,6 @@ public class Book implements Serializable {
     private String language;
     private BigDecimal price;
     private String pub_date;
-    private int class_id;
     private int number;
 
     public long getBookId() {
@@ -88,14 +86,6 @@ public class Book implements Serializable {
 
     public void setPubdate(String pub_date) {
         this.pub_date = pub_date;
-    }
-
-    public int getClassId() {
-        return class_id;
-    }
-
-    public void setClassId(int class_id) {
-        this.class_id = class_id;
     }
 
     public int getNumber() {

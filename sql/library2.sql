@@ -47,7 +47,6 @@ CREATE TABLE `book_info`  (
   `language` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` decimal(10, 2) NOT NULL,
   `pub_date` date NOT NULL,
-  `class_id` int(11) NULL DEFAULT NULL,
   `number` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`book_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -55,49 +54,13 @@ CREATE TABLE `book_info`  (
 -- ----------------------------
 -- Records of book_info
 -- ----------------------------
-INSERT INTO `book_info` VALUES (1, 'Access数据库', '张三', '电子工业出版社', 'DBM005', 'Java高级应用', '中文', 22.00, '2021-04-14', 5, 2);
-INSERT INTO `book_info` VALUES (2, '计算机文化基础', '张三', '交通大学出版社', 'JSJ009', '计算机文化基础', '中文', 35.00, '1996-06-12', 5, 15);
-INSERT INTO `book_info` VALUES (3, '办公自动化', '张三', '复旦大学出版社', 'BGZ023', '办公自动化', '中文', 38.00, '2023-11-08', 5, 10);
-INSERT INTO `book_info` VALUES (4, '网络通讯', '张三', '复旦大学出版社', 'WLT09', '水电费', '中文', 36.00, '2023-11-07', 5, 3);
-INSERT INTO `book_info` VALUES (5, '计算机应用基础', '张三', '复旦大学出版社', 'JSJ021', '鼎折覆餗', '中文', 19.00, '2023-11-08', 4, 20);
-INSERT INTO `book_info` VALUES (6, 'OFFICE新貌', '张三', '交通大学出版社', 'OAN031', '对算法', '中文', 23.00, '2023-11-08', 4, 3);
-INSERT INTO `book_info` VALUES (7, '机顶盒使用手册', '张三', '交通大学出版社', 'SNT090', '水电费', '中文', 25.00, '2023-11-02', 5, 3);
-
--- ----------------------------
--- Table structure for class_info
--- ----------------------------
-DROP TABLE IF EXISTS `class_info`;
-CREATE TABLE `class_info`  (
-  `class_id` int(11) NOT NULL,
-  `class_name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`class_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of class_info
--- ----------------------------
-INSERT INTO `class_info` VALUES (1, '马克思主义');
-INSERT INTO `class_info` VALUES (2, '哲学');
-INSERT INTO `class_info` VALUES (3, '社会科学总论');
-INSERT INTO `class_info` VALUES (4, '政治法律');
-INSERT INTO `class_info` VALUES (5, '军事');
-INSERT INTO `class_info` VALUES (6, '经济');
-INSERT INTO `class_info` VALUES (7, '文化');
-INSERT INTO `class_info` VALUES (8, '语言');
-INSERT INTO `class_info` VALUES (9, '文学');
-INSERT INTO `class_info` VALUES (10, '艺术');
-INSERT INTO `class_info` VALUES (11, '历史地理');
-INSERT INTO `class_info` VALUES (12, '自然科学总论');
-INSERT INTO `class_info` VALUES (13, ' 数理科学和化学');
-INSERT INTO `class_info` VALUES (14, '天文学、地球科学');
-INSERT INTO `class_info` VALUES (15, '生物科学');
-INSERT INTO `class_info` VALUES (16, '医药、卫生');
-INSERT INTO `class_info` VALUES (17, '农业科学');
-INSERT INTO `class_info` VALUES (18, '工业技术');
-INSERT INTO `class_info` VALUES (19, '交通运输');
-INSERT INTO `class_info` VALUES (20, '航空、航天');
-INSERT INTO `class_info` VALUES (21, '环境科学');
-INSERT INTO `class_info` VALUES (22, '综合');
+INSERT INTO `book_info` VALUES (1, 'Access数据库', '张三', '电子工业出版社', 'DBM005', 'Java高级应用', '中文', 22.00, '2021-04-14', 2);
+INSERT INTO `book_info` VALUES (2, '计算机文化基础', '张三', '交通大学出版社', 'JSJ009', '计算机文化基础', '中文', 35.00, '1996-06-12', 15);
+INSERT INTO `book_info` VALUES (3, '办公自动化', '张三', '复旦大学出版社', 'BGZ023', '办公自动化', '中文', 38.00, '2023-11-08', 10);
+INSERT INTO `book_info` VALUES (4, '网络通讯', '张三', '复旦大学出版社', 'WLT09', '水电费', '中文', 36.00, '2023-11-07', 3);
+INSERT INTO `book_info` VALUES (5, '计算机应用基础', '张三', '复旦大学出版社', 'JSJ021', '鼎折覆餗', '中文', 19.00, '2023-11-08', 20);
+INSERT INTO `book_info` VALUES (6, 'OFFICE新貌', '张三', '交通大学出版社', 'OAN031', '对算法', '中文', 23.00, '2023-11-08', 3);
+INSERT INTO `book_info` VALUES (7, '机顶盒使用手册', '张三', '交通大学出版社', 'SNT090', '水电费', '中文', 25.00, '2023-11-02', 3);
 
 -- ----------------------------
 -- Table structure for lend_list

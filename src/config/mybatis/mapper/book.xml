@@ -4,14 +4,13 @@
     <insert id="addBook" parameterType="com.library.bean.Book">
         insert into book_info values
         (null, #{name}, #{author}, #{publish}, #{ISBN},
-        #{introduction}, #{language}, #{price}, #{pub_date},
-        #{class_id}, #{number})
+        #{introduction}, #{language}, #{price}, #{pub_date}, #{number})
     </insert>
     <update id="editBook" parameterType="com.library.bean.Book">
         update book_info set name=#{name}, author=#{author},
         publish=#{publish}, ISBN=#{ISBN}, introduction=#{introduction},
         language=#{language}, price=#{price}, pub_date=#{pub_date},
-        class_id=#{class_id}, number=#{number} where book_id=#{book_id}
+        number=#{number} where book_id=#{book_id}
     </update>
     <select id="getAllBooks" resultType="com.library.bean.Book">
         select * from book_info

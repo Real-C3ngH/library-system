@@ -58,10 +58,6 @@ background-attachment: fixed;">
                    readonly="readonly" onclick="WdatePicker();">
         </div>
         <div class="form-group">
-            <label for="classId">分类号</label>
-            <input type="text" class="form-control" name="classId" id="classId" placeholder="请输入分类号">
-        </div>
-        <div class="form-group">
             <label for="number">数量</label>
             <input type="text" class="form-control" name="number" id="number" placeholder="请输入图书数量">
         </div>
@@ -69,7 +65,7 @@ background-attachment: fixed;">
         <input type="submit" value="添加" class="btn btn-success btn-sm" class="text-left">
         <script>
             $("#addbook").submit(function () {
-                if ($("#name").val() == '' || $("#author").val() == '' || $("#publish").val() == '' || $("#isbn").val() == '' || $("#introduction").val() == '' || $("#language").val() == '' || $("#price").val() == '' || $("#pubstr").val() == '' || $("#classId").val() == '' || $("#pressmark").val() == '' || $("#number").val() == '') {
+                if ($("#name").val() == '' || $("#author").val() == '' || $("#publish").val() == '' || $("#isbn").val() == '' || $("#introduction").val() == '' || $("#language").val() == '' || $("#price").val() == '' || $("#pubdate").val() == '' || $("#number").val() == '') {
                     alert("请填入完整图书信息！");
                     return false;
                 }

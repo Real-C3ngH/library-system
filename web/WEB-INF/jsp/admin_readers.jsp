@@ -10,6 +10,17 @@
         $(function () {
             $('#header').load('admin_header.html');
         })
+        
+        // 删除读者确认功能
+        $(document).on('click', '.delete-reader-btn', function(e) {
+            e.preventDefault();
+            var readerId = $(this).data('reader-id');
+            var readerName = $(this).data('reader-name');
+            
+            if (confirm('确定要删除读者《' + readerName + '》吗？\n\n删除读者会同时删除其借书记录，此操作不可撤销！')) {
+                window.location.href = 'reader_delete.html?readerId=' + readerId;
+            }
+        });
     </script>
 </head>
 <body background="img/login_bg.jpg" style=" background-repeat:no-repeat ;
@@ -20,23 +31,19 @@ background-attachment: fixed;">
     <script>alert("${info}");window.location.href="allreaders.html"</script>
 </c:if>
 
-<div style="position: relative;top: 15%">
+<!-- 成功和错误消息弹窗 -->
 <c:if test="${!empty succ}">
-    <div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-hidden="true">
-            &times;
-        </button>
-            ${succ}
-    </div>
+    <script>
+        alert("${succ}");
+    </script>
 </c:if>
 <c:if test="${!empty error}">
-    <div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-hidden="true">
-            &times;
-        </button>
-            ${error}
+    <script>
+        alert("${error}");
+    </script>
+</c:if>
+
+<div style="position: relative;top: 15%">
     </div>
 </c:if>
 </div>
@@ -72,7 +79,7 @@ background-attachment: fixed;">
                     <td><c:out value="${reader.address}"></c:out></td>
                     <td><c:out value="${reader.phone}"></c:out></td>
                     <td><a href="reader_edit.html?readerId=<c:out value="${reader.readerId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-                    <td><a href="reader_delete.html?readerId=<c:out value="${reader.readerId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                    <td><button type="button" class="btn btn-danger btn-xs delete-reader-btn" data-reader-id="<c:out value="${reader.readerId}"></c:out>" data-reader-name="<c:out value="${reader.name}"></c:out>">删除</button></td>
                 </tr>
             </c:forEach>
             </tbody>
