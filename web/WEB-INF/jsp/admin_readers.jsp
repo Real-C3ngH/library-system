@@ -43,10 +43,7 @@ background-attachment: fixed;">
     </script>
 </c:if>
 
-<div style="position: relative;top: 15%">
-    </div>
-</c:if>
-</div>
+
 
 
 <div class="panel panel-default" style="position:relative;top: 80px;width: 90%;margin-left: 5%">

@@ -33,9 +33,12 @@ background-attachment: fixed;">
 <h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>
 
 <div class="panel panel-default" id="login">
-    <div class="panel-heading" style="background-color: #fff">
-        <strong class="panel-title">请登录</strong>
-        <a href="register" class="panel-title">请注册</a>
+    <div class="panel-heading" style="background-color: #fff; display: flex; justify-content: space-between; align-items: center; border-radius: 8px 8px 0 0; padding: 24px 24px 12px 24px; border-bottom: 1px solid #eee;">
+        <div style="display: flex; align-items: center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;"><circle cx="12" cy="12" r="10" fill="#007bff"/><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#fff"/></svg>
+            <span style="font-size: 1.5rem; font-weight: 600; color: #222;">欢迎登录</span>
+        </div>
+        <a href="register" class="btn btn-outline-primary" style="font-weight: 500; border-radius: 20px; padding: 6px 24px;">去注册</a>
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -53,8 +56,7 @@ background-attachment: fixed;">
         </div>
 
         <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
-        <button id="loginButton"  class="btn btn-primary  btn-block">登录
-        </button>
+    <button id="loginButton"  class="btn btn-primary btn-block" style="font-size: 1.2rem; border-radius: 20px; margin-top: 18px;">登录</button>
     </div>
 </div>
     <script>

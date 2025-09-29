@@ -22,47 +22,44 @@ background-attachment: fixed;">
             <h3 class="panel-title">添加读者</h3>
         </div>
         <div class="panel-body">
-            <form action="reader_add_do" method="post" id="readeredit" >
-                <div class="input-group" style="padding-top: 20px;">
-                    <span>用户名 </span>
-                    <input type="text" name="name" id="name"  >
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span>用户密码</span>
-                    <input  type="password"  name="password" id="password">
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span >确认密码</span>
-                    <input  type="password" name="ruserPassword" id="ruserPassword">
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span >用户性别</span>
-                    <input type="text"  name="sex" id="sex" >
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span>出生日期</span>
-                    <input type="text" class="Wdate"  id="birth" name="birth"
-                           readonly="readonly" onclick="WdatePicker();">
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span >居住地址</span>
-                    <input type="text"  name="address" id="address"  >
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <span >通讯电话</span>
-                    <input type="text"  name="phone" id="phone"  >
-                    <span></span>
-                </div>
-                <div class="input-group" style="padding-top: 20px;">
-                    <input style="align-items: center" type="submit" value="添加" class="btn btn-success btn-sm"
-                           class="text-left">
 
+            <form action="reader_add_do" method="post" id="readeredit" >
+                <div class="form-group">
+                    <label for="name">用户名</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label for="password">用户密码</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <label for="ruserPassword">确认密码</label>
+                    <input type="password" class="form-control" name="ruserPassword" id="ruserPassword" placeholder="请再次输入密码">
+                </div>
+                <div class="form-group">
+                    <label for="sex">用户性别</label>
+                    <select class="form-control" name="sex" id="sex">
+                        <option value="">请选择性别</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="birth">出生日期</label>
+                    <input type="text" class="form-control Wdate" id="birth" name="birth"
+                           readonly="readonly" onclick="WdatePicker();" placeholder="请选择出生日期">
+                </div>
+                <div class="form-group">
+                    <label for="address">居住地址</label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="请输入居住地址">
+                </div>
+                <div class="form-group">
+                    <label for="phone">通讯电话</label>
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入手机号码">
+                </div>
+                <div class="form-group text-center" style="margin-top: 30px;">
+                    <button type="submit" class="btn btn-success btn-lg" style="margin-right: 15px;">添加</button>
+                    <a href="allreaders.html" class="btn btn-default btn-lg">返回</a>
                 </div>
 
                 <script>
