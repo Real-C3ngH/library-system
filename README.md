@@ -1,4 +1,4 @@
-# Library System 图书馆管理系统
+# 图书借阅管理系统
 
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
 [![Java](https://img.shields.io/badge/Java-8%2B-orange.svg)](https://www.oracle.com/java/)
