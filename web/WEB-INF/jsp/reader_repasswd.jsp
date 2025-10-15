@@ -28,7 +28,6 @@ background-attachment: fixed;">
         alert("${error}");
     </script>
 </c:if>
-</c:if>
 
 <div class="col-xs-6 col-md-offset-3" style="position: relative;">
     <div class="panel panel-primary ">

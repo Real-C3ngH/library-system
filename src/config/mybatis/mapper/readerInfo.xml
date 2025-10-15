@@ -22,14 +22,10 @@
         update reader_card set username = #{name}
         where reader_id = #{reader_id}
     </update>
-    <insert id="addReaderInfo" parameterType="com.library.bean.ReaderInfo">
-        insert into reader_info values
-        (null, #{name},#{sex},#{birth},#{address},#{phone})
+    <insert id="addReaderInfo" parameterType="com.library.bean.ReaderInfo"
+        useGeneratedKeys="true" keyProperty="reader_id" keyColumn="reader_id">
+        insert into reader_info (name, sex, birth, address, phone)
+        values (#{name}, #{sex}, #{birth}, #{address}, #{phone})
     </insert>
-    <select id="getReaderId" resultType="long" parameterType="com.library.bean.ReaderInfo">
-        select reader_id from reader_info where
-        name = #{name} and sex = #{sex} and
-        birth = #{birth} and address = #{address}
-        and phone = #{phone}
-    </select>
+
 </mapper>

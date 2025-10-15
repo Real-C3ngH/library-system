@@ -42,7 +42,7 @@ public class ReaderCardDao {
         map.put("reader_id", reader_id);
         map.put("username", username);
         map.put("password", password);
-        return sqlSessionTemplate.update(NAMESPACE + "addReaderCard", map);
+        return sqlSessionTemplate.insert(NAMESPACE + "addReaderCard", map);
     }
 
     public String getPassword(final long reader_id) {

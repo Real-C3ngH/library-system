@@ -31,7 +31,6 @@ background-attachment: fixed;">
 
 <div style="position: relative;top: 10%">
         </div>
-    </c:if>
 </div>
 
 <div class="panel panel-default" style="width: 90%;margin-left: 5%;margin-top: 5%">
@@ -56,15 +55,10 @@ background-attachment: fixed;">
                     <td><c:out value="${alog.bookId}"></c:out></td>
                     <td><c:out value="${alog.lendDateStr}"></c:out></td>
                     <td><c:out value="${alog.backDateStr}"></c:out></td>
-                    <c:if test="${empty alog.backDateStr}">
-                        <td>未还</td>
-                    </c:if>
-                    <c:if test="${!empty alog.backDateStr}">
-                        <td>已还</td>
-                    </c:if>
-                    <c:if test="">
-                        <td>超期</td>
-                    </c:if>
+                    <td>
+                        <c:if test="${empty alog.backDateStr}">未还</c:if>
+                        <c:if test="${!empty alog.backDateStr}">已还</c:if>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
