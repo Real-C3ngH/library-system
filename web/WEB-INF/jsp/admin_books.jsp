@@ -18,12 +18,12 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-<div style="padding: 70px 550px 10px">
+<div style="padding: 70px 550px 10px; text-align: center;">
     <form   method="post" action="querybook.html" class="form-inline"  id="searchform">
         <div class="input-group">
-           <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord" >
+           <input type="text" placeholder="输入图书名" class="form-control input-lg" id="search" name="searchWord" style="width: 400px;">
             <span class="input-group-btn">
-                            <input type="submit" value="搜索" class="btn btn-default">
+                            <input type="submit" value="搜索" class="btn btn-default btn-lg">
             </span>
         </div>
     </form>

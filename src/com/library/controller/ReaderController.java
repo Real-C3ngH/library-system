@@ -74,6 +74,9 @@ public class ReaderController {
     @RequestMapping("reader_info.html")
     public ModelAndView toReaderInfo(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        if (readerCard == null) {
+            return new ModelAndView("redirect:/login.html");
+        }
         System.out.println(readerCard);
         ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         System.out.println(readerInfo);
@@ -84,6 +87,9 @@ public class ReaderController {
     @RequestMapping("reader_info_show.html")
     public ModelAndView toReaderInfoShow(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        if (readerCard == null) {
+            return new ModelAndView("redirect:/login.html");
+        }
         System.out.println(readerCard);
         ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         System.out.println(readerInfo);
@@ -133,21 +139,23 @@ public class ReaderController {
     }
     //注册
     @RequestMapping("reader_add")
-    public ModelAndView reader_add(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
+    public String reader_add(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
         ReaderInfo readerInfo = getReaderInfo(0, name, sex, birth, address, phone);
         long readerId = readerInfoService.addReaderInfo(readerInfo);
         readerInfo.setReaderId(readerId);
         if (readerId > 0 && readerCardService.addReaderCard(readerInfo, password)) {
             redirectAttributes.addFlashAttribute("succ", "注册成功！");
         } else {
-            redirectAttributes.addFlashAttribute("succ", "注册失败！");
-
+            redirectAttributes.addFlashAttribute("error", "注册失败！");
         }
-        return new ModelAndView("index");
+        return "redirect:/";
     }
     @RequestMapping("reader_info_edit.html")
     public ModelAndView readerInfoEditReader(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        if (readerCard == null) {
+            return new ModelAndView("redirect:/login.html");
+        }
         ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         ModelAndView modelAndView = new ModelAndView("reader_info_edit");
 
@@ -163,6 +171,9 @@ public class ReaderController {
     @RequestMapping("reader_edit_do_r.html")
     public String readerInfoEditDoReader(HttpServletRequest request, String name, String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        if (readerCard == null) {
+            return "redirect:/login.html";
+        }
         ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
         if (readerInfoService.editReaderInfo(readerInfo)) {
             ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getName());
