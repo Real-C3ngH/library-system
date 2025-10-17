@@ -21,8 +21,13 @@ background-size:100% 100%;
 background-attachment: fixed;">
 
 <div id="header"></div>
-<div style="position: relative;padding-top: 60px; width: 80%;margin-left: 10%">
-    <form action="book_add_do.html" method="post" id="addbook">
+<div class="col-xs-6 col-md-offset-3" style="padding-top: 100px;position: relative">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">图书信息添加</h3>
+        </div>
+        <div class="panel-body">
+            <form action="book_add_do.html" method="post" id="addbook">
         <div class="form-group">
             <label for="name">图书名</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="请输入书名">
@@ -72,6 +77,8 @@ background-attachment: fixed;">
             })
         </script>
     </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
